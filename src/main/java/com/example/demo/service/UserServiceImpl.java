@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
 
         User user = userMapper.fromUserDTO(userDTO);
 
-        Optional<User> local  = this.userRepository.findByUsername(user.getUsername());
+        Optional<User> local  = this.userRepository.findByEmail(user.getEmail());
         User current = null;
         if(local.isPresent()) {
         	//throw new LibraryException(ErrorConstant.USER_PRESENT);
@@ -52,8 +52,8 @@ public class UserServiceImpl implements UserService{
     public User login(LoginDTO loginDTO){
 
     	// should check for username + password
-        User user = userRepository.findByUsername(loginDTO.getUsername()).orElseThrow(null);
-        System.out.println("loginDTO.getUserName(): "+loginDTO.getUsername());
+        User user = userRepository.findByEmail(loginDTO.getEmail()).orElseThrow(null);
+        System.out.println("loginDTO.getEmail(): "+loginDTO.getEmail());
         return user;
     }
 

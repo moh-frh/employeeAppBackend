@@ -10,9 +10,13 @@ import com.example.demo.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 	
-	Optional<User> findByEmail(String email);
+	//Optional<User> findByEmail(String email);
 	
 	@Query("from User u where u.username = :username")
     public Optional<User> findByUsername(@Param("username") String username);
+	
+//	@Query("from User u where u.email = :email")
+//    public Optional<User> findByEmail(@Param("email") String email);
+	Optional<User> findByEmail(String email);
 
 }

@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+
 import com.example.demo.enums.Role;
 
 import jakarta.persistence.Entity;
@@ -52,7 +53,7 @@ public class User {
 		this.id = id;
 	}
 	public String getUsername() {
-		return username;
+		return email;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -87,7 +88,5 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-    
-    
 
 }
